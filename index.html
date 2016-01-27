@@ -1,0 +1,130 @@
+<DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Git</title>
+        <meta name="description" content="Una presentazione per introdurre gli studenti all'uso di Git">
+    		<meta name="author" content="Enrico Fasoli">
+    		<meta name="apple-mobile-web-app-capable" content="yes">
+    		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/white.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                  <h1><i class="fa fa-git"></i></h1>
+                  <p><small>A cura di Enrico Fasoli</small></p>
+                </section>
+                <section>
+                  <section>
+                    <h1>Situazione</h1>
+                    <p>Sviluppare un Software in gruppo</p>
+                    <p>Come condividiamo il lavoro?</p>
+                  </section>
+                  <section>
+                    <h1><i class="fa fa-usb"></i></h1>
+                    <h3>Chiavetta USB</h3>
+                    <ul>
+        						  <li class="fragment">non funziona in remoto</li>
+          						<li class="fragment">un utente alla volta</li>
+                    </ul>
+                  </section>
+                  <section>
+                    <h1><i class="fa fa-envelope-o"></i></h1>
+                    <h3>Email</h3>
+                    <ul>
+        						  <li class="fragment">richiede una connessione</li>
+          						<li class="fragment">problematico con file grandi</li>
+                    </ul>
+                  </section>
+                  <section>
+                    <h1><i class="fa fa-cloud-upload"></i></h1>
+                    <h3>Cloud</h3>
+                    <ul>
+        						  <li class="fragment">richiede una connessione</li>
+          						<li class="fragment">non si capisce chi ha cambiato cosa</li>
+          						<li class="fragment">crea una dipendenza da un servizio esterno</li>
+                    </ul>
+                  </section>
+                </section>
+                <section>
+                  <h3>Ci vuole qualcosa di meglio</h3>
+                  <ul>
+                    <li class="fragment">che funzioni offline</li>
+                    <li class="fragment">che permetta di <i>viaggiare nel tempo</i></li>
+                    <li class="fragment">che registri l'autore di ogni modifica</li>
+                    <li class="fragment">che non dipenda da sistemi centralizzati</li>
+                  </ul>
+                </section>
+                <section>
+                  <h3>Esempi</h3>
+                  <ul>
+                    <li class="fragment">Subversion (SVN)</li>
+                    <li class="fragment">Perforce</li>
+                    <li class="fragment">CVS</li>
+                  </ul>
+                  <p class="fragment">Ma perchè non scegliere il migliore?</p>
+                </section>
+                <section>
+                  <section>
+                    <h1><i class="fa fa-git"></i></h1>
+                    <ul>
+                      <li class="fragment">creato per gestire lo sviluppo di Linux</li>
+                      <li class="fragment">completamente libero, decentralizzato, multipiattaforma</li>
+                      <li class="fragment">Git può funzionare offline o con qualsiasi mezzo di trasporto, come una email o chiavetta USB</li>
+                      <li class="fragment">indipendente dal trasporto</li>
+                      <li class="fragment">Git è semplice, non ha nemmeno un'interfaccia grafica</li>
+                      <li class="fragment">Git è però difficile da comprendere, perchè è molto potente</li>
+                    </ul>
+                  </section>
+                  <section>
+                    <h3>Installazione</h3>
+                    <p>Per <b>Windows</b> è disponibile sul sito <a href="http://git-scm.com">git-scm.com</a></p>
+                    <p>Per <b>Linux</b> lo si può sempre installare tramite il <u>Package Manager</u></p>
+                  </section>
+                </section>
+                <section>
+                  <section>
+                    <h3>Concetti</h3>
+                    <p>Per capire meglio Git, partiamo da alcuni suoi concetti di base</p>
+                  </section>
+                  <section>
+                    <h3>Repository</h3>
+                    <p>Contiene <b>tutti i dati</b> relativi a un progetto</p>
+                    <p>Ogni copia di un repository è un repository</p>
+                  </section>
+                  <section>
+                    <h3>Commit</h3>
+                    <ul>
+                      <li class="fragment">rappresenta una modifica ad una repository</li>
+                      <li class="fragment">contiene solo cosa è stato cambiato, e un riferimento al commit su cui va applicato</li>
+                      <li class="fragment">è anche una <b>trasformazione</b> applicata sul commit precedente</li>
+                      <li class="fragment">il primo commit di una repository si applica sul vuoto, dunque non ha riferimento al commit precedente</li>
+                    </ul>
+                  </section>
+                  <section>
+                    <h3>Remote</h3>
+                    <h4>Copia di un repository, spesso remota</h4>
+                    <p>Git offre numerosi strumenti per interagire con essi</p>
+                  </section>
+                  <section>
+                    <h3>Branch</h3>
+                    <h4>Puntatore a un commit</h4>
+                    <p>Git offre numerosi strumenti per interagire con essi</p>
+                  </section>
+                </section>
+            </div>
+        </div>
+        <script src="js/reveal.js"></script>
+        <script>
+            Reveal.initialize({
+              history: true
+            });
+        </script>
+    </body>
+</html>
