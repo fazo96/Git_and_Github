@@ -18,11 +18,12 @@
             <div class="slides">
                 <section>
                   <h1><i class="fa fa-git"></i></h1>
-                  <p><small>A cura di Enrico Fasoli</small></p>
+                  <p><a href="http://fazo96.github.io/Git_and_Github">fazo96.github.io/Git_and_Github</a></p>
+                  <p><small>A cura di <a href="http://github.com/fazo96">Enrico Fasoli</a></small></p>
                 </section>
                 <section>
                   <section>
-                    <h1>Situazione</h1>
+                    <h2>Situazione</h2>
                     <p>Sviluppare un Software in gruppo</p>
                     <p>Come condividiamo il lavoro?</p>
                   </section>
@@ -49,6 +50,7 @@
         						  <li class="fragment">richiede una connessione</li>
           						<li class="fragment">non si capisce chi ha cambiato cosa</li>
           						<li class="fragment">crea una dipendenza da un servizio esterno</li>
+                      <li class="fragment"><b>Lento</b>!</li>
                     </ul>
                   </section>
                 </section>
@@ -84,8 +86,9 @@
                   </section>
                   <section>
                     <h3>Installazione</h3>
-                    <p>Per <b>Windows</b> è disponibile sul sito <a href="http://git-scm.com">git-scm.com</a></p>
-                    <p>Per <b>Linux</b> lo si può sempre installare tramite il <u>Package Manager</u></p>
+                    <p>Per <b>Windows</b> dal sito <a href="http://git-scm.com">git-scm.com</a><br>o installando <a href="http://desktop.github.com">GitHub Desktop</a> (consigliato)</p>
+                    <p>Per <b>Linux</b> tramite il <u>Package Manager</u></p>
+                    <p>Per <b>OSX</b> tramite <a href="http://brew.sh">Homebrew</a></p>
                   </section>
                 </section>
                 <section>
@@ -130,12 +133,27 @@
                     <p>Indica l'ultimo commit che è stato estratto nella W.D.</p>
                     <p><b>Esempio</b>: quando dovete lavorare su un commit, lo estraete nella W.D. per farci delle modifiche. L'HEAD viene spostato per puntare al commit che avete estratto.</p>
                   </section>
+                  <section>
+                    <h3>Gitignore</h3>
+                    <h4>File speciale</h4>
+                    <p>il file <b>.gitignore</b> nella cartella di un repository specifica quali file e cartelle Git deve ignorare.</p>
+                    <p><b>Esempio</b>: se usate <b>Netbeans</b>, noterete che genera un sacco di file. La maggior parte di essi sono temporanei e <u>non vanno tracciati</u> usando git, altrimenti si crea solo disordine inutile.</p>
+                    <p>Potete trovare esempi di gitignore già pronti su internet e adattarli</p>
+                  </section>
                 </section>
                 <section>
                   <section>
                     <h3>Comandi e Operazioni</h3>
                     <p>Vediamo adesso quali sono i comandi più importanti.</p>
                     <p><b>Nota</b>: su Linux, è sempre possibile consultare il <u>manuale</u> di un comando! Alternativamente, una ricerca su internet può aiutare molto!</p>
+                  </section>
+                  <section>
+                    <h3>Config</h3>
+                    <h4>Cambia la configurazione globale o per repository</h4>
+                    <pre>$ git config [--global] (nome) (valore)</pre>
+                    <p><b>Nota</b>: è importante configurare il <u>nome</u> e la <u>email</u></p>
+                    <pre>$ git config --global name "Enrico Fasoli"</pre>
+                    <pre>$ git config --global email "enrico.fasoli1996@gmail.com"</pre>
                   </section>
                   <section>
                     <h3>Init</h3>
@@ -235,7 +253,48 @@
                 <section>
                   <section>
                     <h3>Remote</h3>
-                    <h4>Come interagire con altre repository</h4>
+                    <h4>Copie remote di un repository</h4>
+                    <p>Git supporta una serie di protocolli per comunicare con i remote</p>
+                    <ul>
+                      <li><b>SSH</b>, il più sicuro e veloce anche da scuola</li>
+                      <li><b>HTTP(s)</b>, ottimo per copie in sola lettura</li>
+                      <li><b>File System</b>, ottimo per chiavette USB</li>
+                    </ul>
+                  </section>
+                  <section>
+                    <h3>Clone</h3>
+                    <h4>Clona un repository remoto</h4>
+                    <pre data-noescape>$ git clone [URL...]</pre>
+                    <p>Permette di creare una copia locale <u>completa</u> di un repository remoto</p>
+                    <p><b>Nota</b>: aggiunge automaticamente un <u>remote</u> chiamato <u>origin</u> con l'URL dato</p>
+                    <pre data-noescape>$ git clone https://github.com/utente/repo.git</pre>
+                  </section>
+                  <section>
+                    <h3>Remote</h3>
+                    <h4>Gestione dei remote</h4>
+                    <pre data-noescape>$ git remote (add|remove|rename|...) (nome) [URL...]</pre>
+                    <p>Permette di aggiungere, eliminare, modificare i remote di una repository</p>
+                    <p><b>Nota</b>: di solito il server principale viene chiamato <u>origin</u></p>
+                    <pre data-noescape>$ git remote add origin https://github.com/utente/repo.git</pre>
+                    <pre data-noescape>$ git remote rename origin github</pre>
+                  </section>
+                  <section>
+                    <h3>Fetch</h3>
+                    <h4>Controlla le differenze tra la copia locale e il remote dato</h4>
+                    <pre data-noescape>$ git fetch [-u] [remote] [riferimento]</pre>
+                    <p>Permette di controllare lo stato del remote</p>
+                  </section>
+                  <section>
+                    <h3>Push</h3>
+                    <h4>Invia informazioni a un remote</h4>
+                    <pre data-noescape>$ git push [-u] [(remote) (riferimento)]</pre>
+                    <p>Permette di <i>pushare</i> un branch locale a un remote, aggiornandolo</p>
+                  </section>
+                  <section>
+                    <h3>Pull</h3>
+                    <h4>Scarica informazioni dal branch remoto</h4>
+                    <pre data-noescape>$ git pull [-u] [(remote) (riferimento)]</pre>
+                    <p>Permette di aggiornare la copia locale dal remote dato</p>
                   </section>
                 </section>
                 <section>
@@ -243,6 +302,36 @@
                     <h3>GitHub</h3>
                     <h4>E altri servizi di hosting per git</h4>
                   </section>
+                  <section>
+                    <h3>Ne esistono tanti</h3>
+                    <ul>
+                      <li><a href="http://fosshub.com">FossHub</a></li>
+                      <li><a href="http://gitlab.com">GitLab</a></li>
+                      <li><a href="http://bitbucket.org">BitBucket</a></li>
+                      <li><a href="http://gogs.io">Gogs</a></li>
+                    </ul>
+                    <p>ma <a href="http://github.com">GitHub</a> è il più usato</p>
+                    <p>Alcuni possono essere installati su un vostro server</p>
+                  </section>
+                  <section>
+                    <h3>Servizi Aggiuntivi</h3>
+                    <h5>Offerti da GitHub e parzialmente dalla competizione</h5>
+                    <ul>
+                      <li><b>Issue Tracking</b> per il Project Management</li>
+                      <li><b>Releases</b> per rilasciare binari</li>
+                      <li><b>GitHub Pages</b> per hostare siti web statici</li>
+                      <li><b>Funzioni Social</b></li>
+                      <li><a href="https://education.github.com/pack">GitHub Student Developer Pack</a></li>
+                    </ul>
+                  </section>
+                </section>
+                <section>
+                  <h2>Passiamo alla pratica</h2>
+                  <ul>
+                    <li><a href="https://github.com/fazo96/glossary">github.com/fazo96/glossary</a> è un ottimo esempio di programma in Java sviluppato in gruppo a scuola</p></li>
+                    <li><a href="https://pcottle.github.io/learnGitBranching/">pcottle.github.io/learnGitBranching</a> è un ottimo sandbox per allenarsi</li>
+                    <li>In generale, su internet si trovano molte informazioni <u>in inglese</u>!</li>
+                  </ul>
                 </section>
             </div>
         </div>
