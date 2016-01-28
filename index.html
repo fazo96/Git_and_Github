@@ -75,7 +75,7 @@
                     <h1><i class="fa fa-git"></i></h1>
                     <ul>
                       <li class="fragment">creato per gestire lo sviluppo di Linux</li>
-                      <li class="fragment">completamente libero, decentralizzato, multipiattaforma</li>
+                      <li class="fragment">completamente libero, decentralizzato, multipiattaforma, integrabile</li>
                       <li class="fragment">Git può funzionare offline o con qualsiasi mezzo di trasporto, come una email o chiavetta USB</li>
                       <li class="fragment">indipendente dal trasporto</li>
                       <li class="fragment">Git è semplice, non ha nemmeno un'interfaccia grafica</li>
@@ -97,6 +97,13 @@
                     <h3>Repository</h3>
                     <p>Contiene <b>tutti i dati</b> relativi a un progetto</p>
                     <p>Ogni copia di un repository è un repository</p>
+                    <p>Contiene la <b>working directory</b> e una cartella <b>.git</b> con tutti i dati di git</p>
+                  </section>
+                  <section>
+                    <h3>Working Directory</h3>
+                    <h4>rappresenta la copia di lavoro dei file</h4>
+                    <p>In altre parole, sono i file che si trovano in questo momento nella cartella della repository e con cui state lavorando.</p>
+                    <p>Tutti i dati di <b>git</b> sono salvati nella cartella nascosta <b>.git</b> del vostro repository</p>
                   </section>
                   <section>
                     <h3>Commit</h3>
@@ -115,7 +122,126 @@
                   <section>
                     <h3>Branch</h3>
                     <h4>Puntatore a un commit</h4>
-                    <p>Git offre numerosi strumenti per interagire con essi</p>
+                    <p>Sono usati per tenere traccia di diversi rami di sviluppo. Quello principale si chiama <b>master</b> di default e punta, di convenzione, all'ultimo commit.</p>
+                  </section>
+                  <section>
+                    <h3>HEAD</h3>
+                    <h4>Puntatore a un commit speciale</h4>
+                    <p>Indica l'ultimo commit che è stato estratto nella W.D.</p>
+                    <p><b>Esempio</b>: quando dovete lavorare su un commit, lo estraete nella W.D. per farci delle modifiche. L'HEAD viene spostato per puntare al commit che avete estratto.</p>
+                  </section>
+                </section>
+                <section>
+                  <section>
+                    <h3>Comandi e Operazioni</h3>
+                    <p>Vediamo adesso quali sono i comandi più importanti.</p>
+                    <p><b>Nota</b>: su Linux, è sempre possibile consultare il <u>manuale</u> di un comando! Alternativamente, una ricerca su internet può aiutare molto!</p>
+                  </section>
+                  <section>
+                    <h3>Init</h3>
+                    <h4>Crea un repository</h4>
+                    <pre>$ git init</pre>
+                    <p>Partendo da una cartella di file esistenti (o vuota) viene creato un repository vuoto (senza commit)</p>
+                  </section>
+                  <section>
+                    <h3>Status</h3>
+                    <h4>Informazioni sullo stato della working directory</h4>
+                    <pre>$ git status</pre>
+                    <p>Vi informa su cosa succede nella <b>W.D.</b>, sulla posizione dell'<b>HEAD</b> e altre informazioni.</p>
+                    <ul>
+                      <li>Una W.D. <b>sporca</b> contiene delle modifiche non salvate in un commit</li>
+                      <li>Mostra i file selezionati da includere nel prossimo commit</li>
+                    </ul>
+                  </section>
+                  <section>
+                    <h3>Checkout</h3>
+                    <h4>Estrae un commit nella working directory</h4>
+                    <pre data-noescape>$ git checkout (riferimento...)</pre>
+                    <p>Permette di estrarre lo stato di una repository ad un certo commit nella W.D.</p>
+                    <p>Può anche essere usato per <u>creare nuovi branch</u></p>
+                    <p><b>Attenzione:</b> questa operazione <u>sposta l'HEAD</u> al riferimento che è stato estratto.</p>
+                  </section>
+                  <section>
+                    <h3>Add</h3>
+                    <h4>Seleziona i file da aggiungere al prossimo commit</h4>
+                    <pre data-noescape>$ git add (file o cartelle...)</pre>
+                    <p>Permette di scegliere quali file o cartelle (o tutto usando il flag <code>-A</code>) aggiungere al prossimo commit</p>
+                    <p><b>Attenzione:</b> questa operazione <u>sposta l'HEAD</u> al riferimento che è stato estratto.</p>
+                  </section>
+                  <section>
+                    <h3>Diff</h3>
+                    <h4>Mostra le differenze tra l'<b>HEAD</b> e la <b>W.D.</b></h4>
+                    <pre data-noescape>$ git diff [argomenti]</pre>
+                    <p>Diff è un utilissimo comando che mostra cosa è stato cambiato tra l'<b>HEAD</b> e la <b>W.D.</b>.</p>
+                    <p>Può anche essere usato per vedere la <u>differenza tra due riferimenti</u> ad esempio tra due commit o due branch.</p>
+                  </section>
+                  <section>
+                    <h3>Commit</h3>
+                    <h4>Crea un nuovo commit</h4>
+                    <pre data-noescape>$ git commit [-m "messaggio"]</pre>
+                    <p>Include i file selezionati con <code>add</code> in un nuovo commit, che si baserà sull'<b>HEAD</b> corrente.</p>
+                    <p><b>Attenzione:</b> questa operazione <u>sposta l'HEAD</u> al nuovo commit.</p>
+                  </section>
+                  <section>
+                    <h3>Log</h3>
+                    <h4>Mostra un elenco di commit</h4>
+                    <pre data-noescape>$ git log [argomenti]</pre>
+                    <p>Partendo dall'<b>HEAD</b>, mostra la catena di commit su cui esso si basa. Tramite argomenti può essere configurato per mostrare altre informazioni in diverso formato.</p>
+                  </section>
+                  <section>
+                    <h3>Stash</h3>
+                    <h4>Permette di salvare separatamente la W.D. per poi estrarla di nuovo in un secondo momento</h4>
+                    <pre data-noescape>$ git stash [apply/pop/drop/list/show]</pre>
+                    <ul>
+                      <li class="fragment"><u>git stash</u> salva lo stato corrente e pulisce la W.D.</li>
+                      <li class="fragment"><u>git stash list</u> mostra la lista di stati salvati</li>
+                      <li class="fragment"><u>git stash pop (stato)</u> estrae l'ultimo stato salvato (o uno in particolare) in W.D. e lo elimina dagli stash</li>
+                      <li class="fragment"><u>git stash apply (stato)</u> come pop ma non elimina lo stato dagli stash</li>
+                    </ul>
+                  </section>
+                </section>
+                <section>
+                  <section>
+                    <h3>Concetti Avanzati</h3>
+                    <p>E operazioni associate</p>
+                    <p>Per gli <u>utenti esperti</u>!</p>
+                  </section>
+                  <section>
+                    <h3>Merge</h3>
+                    <h4>Include i commit di un branch nel branch corrente.</h4>
+                    <pre data-noescape>$ git merge [opzioni] (branch)</pre>
+                    <p>Questa operazione pericolosa può risultare in un <u>Conflict</u></p>
+                  </section>
+                  <section>
+                    <h3>Rebase</h3>
+                    <h4>Sposta la base del primo commit di un branch su un'altro commit</h4>
+                    <pre data-noescape>$ git rebase [opzioni] (branch/commit)</pre>
+                    <p>Questa operazione pericolosa può risultare in un <u>Conflict</u></p>
+                  </section>
+                  <section>
+                    <h3>Conflict</h3>
+                    <h4>Accade quando Git non può risolvere automaticamente un merge o rebase</h4>
+                    <p>Quando accade, git <u>va in uno stato di conflitto</u> e <u>inserisce nella W.D.</u> i file modificati per includere entrambe le versioni di ogni parte che causa un conflitto.</p>
+                    <p>Il conflitto si risolve <u>aggiustando manualmente i file e confermando le modifiche a git</u>. Alternativamente si può annullare l'operazione che ha causato il conflitto.</p>
+                    <p><b>Nota</b>: in caso di conflitto, <u>non andare nel panico</u> e leggere attentamente l'output di <b>git status</b>!</p>
+                  </section>
+                  <section>
+                    <h3>Reset</h3>
+                    <h4>Sposta il puntatore a un branch all'<b>HEAD</b> corrente</h4>
+                    <pre data-noescape>$ git reset --(hard|mixed|soft) [opzioni] (branch)</pre>
+                    <p>Questa operazione è pericolosa e può causare la perdita di commit!</p>
+                  </section>
+                </section>
+                <section>
+                  <section>
+                    <h3>Remote</h3>
+                    <h4>Come interagire con altre repository</h4>
+                  </section>
+                </section>
+                <section>
+                  <section>
+                    <h3>GitHub</h3>
+                    <h4>E altri servizi di hosting per git</h4>
                   </section>
                 </section>
             </div>
