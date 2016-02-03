@@ -132,7 +132,7 @@
                   <section>
                     <h3>Branch</h3>
                     <h4>Puntatore a un commit</h4>
-                    <p>Sono usati per tenere traccia di diversi rami di sviluppo. Quello principale si chiama <b>master</b> di default e punta, di convenzione, all'ultimo commit.</p>
+                    <p>Sono usati per tenere traccia di diversi rami di sviluppo. Quello principale si chiama <b>master</b> di default e punta, per convenzione, all'ultimo commit.</p>
                   </section>
                   <section>
                     <h3>HEAD</h3>
@@ -222,6 +222,16 @@
                       <li class="fragment"><u>git stash list</u> mostra la lista di stati salvati</li>
                       <li class="fragment"><u>git stash pop (stato)</u> estrae l'ultimo stato salvato (o uno in particolare) in W.D. e lo elimina dagli stash</li>
                       <li class="fragment"><u>git stash apply (stato)</u> come pop ma non elimina lo stato dagli stash</li>
+                    </ul>
+                  </section>
+                  <section>
+                    <h3>Tag</h3>
+                    <h4>Aggiunge un'etichetta a un commit</h4>
+                    <pre data-noescape>$ git tag "etichetta"</pre>
+                    <p>Permette di etichettare un commit. Spesso usato per marcare la versione del software</p>
+                    <ul>
+                      <li>Si può anche usare il comando per mostrare una lista di tag e gestirle</li>
+                      <li>Si ricorda che un'etichetta è un riferimento valido a un commit</li>
                     </ul>
                   </section>
                 </section>
